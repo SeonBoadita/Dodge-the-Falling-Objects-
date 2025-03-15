@@ -38,9 +38,6 @@ window.addEventListener("DOMContentLoaded", function () {
             objHeight += speed;
             obj.style.top = objHeight + "px";
 
-            // Create a fading trail effect
-            createTrail(objLeft, objHeight);
-
             // Check collision with character
             if (checkCollision(box, obj)) {
                 alert("Game Over!");
@@ -60,21 +57,6 @@ window.addEventListener("DOMContentLoaded", function () {
         }, 50);
     }
 
-    // Function to create the trail effect
-    function createTrail(x, y) {
-        let trail = document.createElement("div");
-        trail.classList.add("trail");
-        trail.style.left = x + "px";
-        trail.style.top = y + "px";
-
-        document.body.appendChild(trail);
-
-        // Make the trail fade and remove it
-        setTimeout(() => {
-            trail.style.opacity = "0";
-            setTimeout(() => trail.remove(), 500);
-        }, 50);
-    }
 
     // Function to check collision
     function checkCollision(box, obj) {
